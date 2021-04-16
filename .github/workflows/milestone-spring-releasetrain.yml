@@ -1,0 +1,14 @@
+on:
+  miletone:
+    types: [created, opened, edited]
+
+jobs:
+  spring-releasetrain-checks:    
+    name: Check DueOn is on a Release Date
+    runs-on: ubuntu-latest
+    steps:
+    - name: Dump GitHub context
+      env:
+        GITHUB_CONTEXT: ${{ toJson(github) }}
+      run: |
+        echo "$GITHUB_CONTEXT"
