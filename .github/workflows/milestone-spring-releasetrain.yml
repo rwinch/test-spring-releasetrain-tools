@@ -1,5 +1,5 @@
 on:
-  miletone:
+  milestone:
     types: [created, opened, edited]
 
 jobs:
