@@ -9,6 +9,7 @@ jobs:
     steps:
     - name: Dump GitHub context
       env:
-        GITHUB_CONTEXT: ${{ github.event.milestone.url }}
+        DUE_ON: ${{ github.event.milestone.due_on }}
       run: |
-        echo "$GITHUB_CONTEXT"
+        wget https://repo.spring.io/plugins-snapshot/io/spring/releasetrain/spring-release-train-tools/1.0.0-SNAPSHOT/spring-release-train-tools-1.0.0-SNAPSHOT.jar
+        java -cp spring-release-train-tools-1.0.0-SNAPSHOT.jar io.spring.releasetrain.CheckMilestoneDueOnMain --dueOn "$DUE_ON" --expectedDayOfWeek MONDAY --expectedMondayCount 3
