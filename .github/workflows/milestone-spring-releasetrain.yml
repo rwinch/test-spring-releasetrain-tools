@@ -13,4 +13,4 @@ jobs:
       run: |
         export TOOL_VERSION=0.1.0
         wget "https://repo.maven.apache.org/maven2/io/spring/releasetrain/spring-release-train-tools/$TOOL_VERSION/spring-release-train-tools-$TOOL_VERSION.jar"
-        java -cp "spring-release-train-tools-$TOOL_VERSION-SNAPSHOT.jar" io.spring.releasetrain.CheckMilestoneDueOnMain --dueOn "$DUE_ON" --expectedDayOfWeek MONDAY --expectedMondayCount 3
+        java -cp "spring-release-train-tools-$TOOL_VERSION.jar" io.spring.releasetrain.CheckMilestoneDueOnMain --dueOn "$DUE_ON" --expectedDayOfWeek MONDAY --expectedMondayCount 3
