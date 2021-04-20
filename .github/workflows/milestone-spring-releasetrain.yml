@@ -11,5 +11,6 @@ jobs:
       env:
         DUE_ON: ${{ github.event.milestone.due_on }}
       run: |
-        wget https://repo.spring.io/plugins-snapshot/io/spring/releasetrain/spring-release-train-tools/1.0.0-SNAPSHOT/spring-release-train-tools-1.0.0-SNAPSHOT.jar
-        java -cp spring-release-train-tools-1.0.0-SNAPSHOT.jar io.spring.releasetrain.CheckMilestoneDueOnMain --dueOn "$DUE_ON" --expectedDayOfWeek MONDAY --expectedMondayCount 3
+        export TOOL_VERSION=0.1.0
+        wget "https://repo.maven.apache.org/maven2/io/spring/releasetrain/spring-release-train-tools/$TOOL_VERSION/spring-release-train-tools-$TOOL_VERSION.jar"
+        java -cp "spring-release-train-tools-$TOOL_VERSION-SNAPSHOT.jar" io.spring.releasetrain.CheckMilestoneDueOnMain --dueOn "$DUE_ON" --expectedDayOfWeek MONDAY --expectedMondayCount 3
