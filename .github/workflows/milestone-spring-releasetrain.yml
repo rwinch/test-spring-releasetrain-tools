@@ -5,12 +5,12 @@ on:
 jobs:
   spring-releasetrain-checks:    
     name: Check DueOn is on a Release Date
+    env:
+      DUE_ON: ${{ github.event.milestone.due_on }}
+    if: env.DUE_ON != ''
     runs-on: ubuntu-latest
     steps:
     - name: Validate DueOn
-      env:
-        DUE_ON: ${{ github.event.milestone.due_on }}
-      if: ${{ DUE_ON != '' }}
       run: |
         export TOOL_VERSION=0.1.1
         wget "https://repo.maven.apache.org/maven2/io/spring/releasetrain/spring-release-train-tools/$TOOL_VERSION/spring-release-train-tools-$TOOL_VERSION.jar"
