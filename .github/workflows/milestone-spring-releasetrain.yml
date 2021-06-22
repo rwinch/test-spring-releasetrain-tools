@@ -1,13 +1,12 @@
 on:
   milestone:
     types: [created, opened, edited]
-
+env:
+  DUE_ON: ${{ github.event.milestone.due_on }}
 jobs:
   spring-releasetrain-checks:    
     name: Check DueOn is on a Release Date
     runs-on: ubuntu-latest
-    env:
-      DUE_ON: ${{ github.event.milestone.due_on }}
     if: env.DUE_ON != ''
     steps:
     - name: Validate DueOn
