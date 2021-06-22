@@ -7,9 +7,9 @@ jobs:
   spring-releasetrain-checks:    
     name: Check DueOn is on a Release Date
     runs-on: ubuntu-latest
-    if: env.DUE_ON != ''
     steps:
     - name: Validate DueOn
+      if: env.DUE_ON != ''
       run: |
         export TOOL_VERSION=0.1.1
         wget "https://repo.maven.apache.org/maven2/io/spring/releasetrain/spring-release-train-tools/$TOOL_VERSION/spring-release-train-tools-$TOOL_VERSION.jar"
