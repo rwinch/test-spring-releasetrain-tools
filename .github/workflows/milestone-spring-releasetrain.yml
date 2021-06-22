@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Print Milestone Being Checked
-      run: echo "Validating $DUE_ON for milestone $TITLE"
+      run: echo "Validating DueOn '$DUE_ON' for milestone '$TITLE'"
     - name: Validate DueOn
       if: env.DUE_ON != ''
       run: |
