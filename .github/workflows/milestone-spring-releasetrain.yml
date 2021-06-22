@@ -6,7 +6,7 @@ env:
   TITLE: ${{ github.event.milestone.title }}
 jobs:
   spring-releasetrain-checks:    
-    name: Check DueOn is on a Release Date
+    name: Check DueOn $TITLE is on a Release Date
     runs-on: ubuntu-latest
     steps:
     - name: Print Milestone Being Checked
