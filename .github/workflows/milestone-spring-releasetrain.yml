@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       DUE_ON: ${{ github.event.milestone.due_on }}
-    if: ${{ github.event.milestone.due_on != '' }}
+    if: env.DUE_ON != ''
     steps:
     - name: Validate DueOn
       run: |
